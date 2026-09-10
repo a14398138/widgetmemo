@@ -1,0 +1,13 @@
+<resources>
+<string name="app_name">こつこつメモ</string>
+<string name="widget_small">こつこつメモ・小（2×1）</string>
+<string name="widget_medium">こつこつメモ・中（2×2）</string>
+<string name="widget_large">こつこつメモ・大（4×3）</string>
+<string name="widget_description">タップして編集できるメモ。長押しでサイズ変更。</string>
+<string name="tap_edit">タップしてメモを書く</string>
+<style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+<item name="android:fontFamily">sans</item><item name="android:colorAccent">#41624F</item>
+<item name="android:windowLightStatusBar">true</item><item name="android:statusBarColor">#F6F5EF</item>
+<item name="android:navigationBarColor">#F6F5EF</item><item name="android:windowLightNavigationBar">true</item>
+<item name="android:windowActionModeOverlay">true</item>
+</style></resources>
