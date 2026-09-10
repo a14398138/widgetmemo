@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
     @Override public void onResume() { super.onResume(); render(); }
     private void render() {
         LinearLayout root=Ui.page(this);
-        root.addView(Ui.text(this,"こつこつメモ",30,true));
+        root.addView(Ui.text(this,"ウィジェットメモ",30,true));
         root.addView(Ui.text(this,"思いついたことを、ホーム画面に。",15,false));
         root.addView(Ui.button(this,"＋ 新しいメモ",()->startActivity(new Intent(this,EditorActivity.class))));
         root.addView(Ui.button(this,"ホーム画面にウィジェットを追加",this::chooseSize));
@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
                     Class<?>[] types={MemoWidget.Small.class,MemoWidget.Medium.class,MemoWidget.Large.class};
                     m.requestPinAppWidget(new ComponentName(this,types[which]),null,null);
                     Toast.makeText(this,"配置後、ウィジェットをタップしてメモを設定してください",Toast.LENGTH_LONG).show();
-                } else new AlertDialog.Builder(this).setMessage("ホーム画面の空きスペースを長押し → ウィジェット → こつこつメモから、サイズを選んで追加してください。").setPositiveButton("OK",null).show();
+                } else new AlertDialog.Builder(this).setMessage("ホーム画面の空きスペースを長押し → ウィジェット → ウィジェットメモから、サイズを選んで追加してください。").setPositiveButton("OK",null).show();
             }).setNegativeButton("キャンセル",null).show();
     }
 }

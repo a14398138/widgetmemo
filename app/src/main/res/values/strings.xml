@@ -1,8 +1,8 @@
 <resources>
-<string name="app_name">こつこつメモ</string>
-<string name="widget_small">こつこつメモ・小（2×1）</string>
-<string name="widget_medium">こつこつメモ・中（2×2）</string>
-<string name="widget_large">こつこつメモ・大（4×3）</string>
+<string name="app_name">ウィジェットメモ</string>
+<string name="widget_small">ウィジェットメモ・小（2×1）</string>
+<string name="widget_medium">ウィジェットメモ・中（2×2）</string>
+<string name="widget_large">ウィジェットメモ・大（4×3）</string>
 <string name="widget_description">タップして編集できるメモ。長押しでサイズ変更。</string>
 <string name="tap_edit">タップしてメモを書く</string>
 <style name="AppBase" parent="android:style/Theme.Material.Light.NoActionBar">

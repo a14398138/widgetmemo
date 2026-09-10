@@ -16,14 +16,13 @@ public class MemoWidget extends AppWidgetProvider {
     static void update(Context c,AppWidgetManager m,int id) {
         Notes.Note note=Notes.get(c,Notes.bound(c,id));
         RemoteViews v=new RemoteViews(c.getPackageName(),R.layout.widget_note);
-        v.setTextViewText(R.id.widget_title,note==null || note.title().trim().isEmpty()?"こつこつメモ":note.title());
         v.setTextViewText(R.id.widget_body,note==null || note.body().trim().isEmpty()?"タップしてメモを書く":note.body());
         int height=m.getAppWidgetOptions(id).getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT,110);
-        v.setInt(R.id.widget_body,"setMaxLines",Math.max(1,(height-44)/22));
+        v.setInt(R.id.widget_body,"setMaxLines",Math.max(1,(height-24)/22));
         Intent intent=new Intent(c,EditorActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,id);
         intent.setData(android.net.Uri.parse("memowidget://edit/"+id));
         PendingIntent pi=PendingIntent.getActivity(c,id,intent,PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
-        v.setOnClickPendingIntent(R.id.widget_root,pi);
+        v.setOnClickPendingIntent(R.id.widget_body,pi);
         m.updateAppWidget(id,v);
     }
     static void refresh(Context c) {

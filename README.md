@@ -1,4 +1,4 @@
-# こつこつメモ
+# ウィジェットメモ
 
 Android 8.0以上向けのJava / Android Viewsによるネイティブメモアプリ。WebViewは使用していません。
 
