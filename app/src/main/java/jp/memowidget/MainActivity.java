@@ -19,11 +19,11 @@ public class MainActivity extends Activity {
         root.addView(Ui.button(this,"ホーム画面にウィジェットを追加",this::chooseSize));
         root.addView(Ui.text(this,"ウィジェットをタップして編集。\n長押しすると、あとからサイズを変更できます。",13,false));
         ScrollView scroll=new ScrollView(this);root.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
-        LinearLayout list=new LinearLayout(this);list.setOrientation(1);scroll.addView(list);
+        LinearLayout list=new LinearLayout(this);list.setOrientation(LinearLayout.VERTICAL);scroll.addView(list);
         java.util.List<Notes.Note> notes=Notes.all(this);
         if(notes.isEmpty()) list.addView(Ui.text(this,"まだメモはありません\n「＋ 新しいメモ」から始めましょう。",18,false));
         for(Notes.Note n:notes) {
-            LinearLayout card=new LinearLayout(this);card.setOrientation(1);card.setBackground(Ui.card());int p=Ui.dp(this,16);card.setPadding(p,p,p,p);
+            LinearLayout card=new LinearLayout(this);card.setOrientation(LinearLayout.VERTICAL);card.setBackground(Ui.card());int p=Ui.dp(this,16);card.setPadding(p,p,p,p);
             LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,-2);lp.setMargins(0,Ui.dp(this,10),0,0);list.addView(card,lp);
             card.addView(Ui.text(this,n.title().trim().isEmpty()?"無題のメモ":n.title(),19,true));
             TextView body=Ui.text(this,n.body(),15,false);body.setMaxLines(4);body.setEllipsize(android.text.TextUtils.TruncateAt.END);card.addView(body);
