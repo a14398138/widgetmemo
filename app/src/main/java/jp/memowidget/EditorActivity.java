@@ -28,8 +28,8 @@ public class EditorActivity extends Activity {
         root.addView(Ui.text(this,"メモを書く",28,true));
         root.addView(Ui.text(this,"保存すると、ホーム画面にも届きます。",14,false));
         if(widgetId!=AppWidgetManager.INVALID_APPWIDGET_ID)root.addView(Ui.button(this,"既存のメモを選ぶ",this::selectNote));
-        title=new EditText(this);title.setId(1001);title.setHint("タイトル（省略可）");title.setSingleLine(true);title.setTextColor(Ui.INK);title.setTextSize(20);title.setFilters(new InputFilter[]{new InputFilter.LengthFilter(120)});root.addView(title);
-        body=new EditText(this);body.setId(1002);body.setHint("ここにメモを書いてください…");body.setTextColor(Ui.INK);body.setTextSize(18);body.setGravity(Gravity.TOP|Gravity.START);
+        title=new EditText(this);title.setId(R.id.editor_title);title.setHint("タイトル（省略可）");title.setSingleLine(true);title.setTextColor(Ui.INK);title.setTextSize(20);title.setFilters(new InputFilter[]{new InputFilter.LengthFilter(120)});root.addView(title);
+        body=new EditText(this);body.setId(R.id.editor_body);body.setHint("ここにメモを書いてください…");body.setTextColor(Ui.INK);body.setTextSize(18);body.setGravity(Gravity.TOP|Gravity.START);
         body.setInputType(android.text.InputType.TYPE_CLASS_TEXT|android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE|android.text.InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         body.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10000)});root.addView(body,new LinearLayout.LayoutParams(-1,0,1));
         if(note!=null){title.setText(note.title());body.setText(note.body());}

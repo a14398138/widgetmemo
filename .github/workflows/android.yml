@@ -22,7 +22,11 @@ jobs:
       - name: Install Android SDK
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
       - name: Build and lint
-        run: gradle --no-daemon :app:assembleDebug :app:lintDebug
+        run: |
+          gradle --no-daemon :app:assembleDebug :app:lintDebug || {
+            cat app/build/reports/lint-results-debug.txt
+            exit 1
+          }
       - name: Prepare APK
         run: |
           cp app/build/outputs/apk/debug/app-debug.apk kotsukotsu-memo.apk
