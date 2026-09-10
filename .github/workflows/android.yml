@@ -29,11 +29,11 @@ jobs:
           }
       - name: Prepare APK
         run: |
-          cp app/build/outputs/apk/debug/app-debug.apk kotsukotsu-memo.apk
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose kotsukotsu-memo.apk
-          sha256sum kotsukotsu-memo.apk > kotsukotsu-memo.apk.sha256
+          cp app/build/outputs/apk/debug/app-debug.apk widgetmemo.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose widgetmemo.apk
+          sha256sum widgetmemo.apk > widgetmemo.apk.sha256
       - name: Publish APK directly (no ZIP)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "build-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" kotsukotsu-memo.apk kotsukotsu-memo.apk.sha256 --target "$GITHUB_SHA" --title "こつこつメモ APK #${GITHUB_RUN_NUMBER}" --notes "動作確認用のデバッグ署名APKです。APKファイルを直接ダウンロードしてインストールできます。"
+          gh release create "build-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" widgetmemo.apk widgetmemo.apk.sha256 --target "$GITHUB_SHA" --title "ウィジェットメモ APK #${GITHUB_RUN_NUMBER}" --notes "動作確認用のデバッグ署名APKです。APKファイルを直接ダウンロードしてインストールできます。"
